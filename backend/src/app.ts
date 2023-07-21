@@ -8,7 +8,7 @@ import session from "express-session";
 import env from "./util/validateEnv";
 import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
-const cors = require("cors");
+// const cors = require("cors");
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.use(morgan("dev"));
 //to set data format
 app.use(express.json());
 
-app.use(cors());
+// app.use(cors());
 
 //set up express session, cookie setup, store in mongo
 app.use(
