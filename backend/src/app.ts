@@ -8,10 +8,9 @@ import session from "express-session";
 import env from "./util/validateEnv";
 import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
+const cors = require("cors");
 
 const app = express();
-
-var cors = require("cors");
 
 // const corsOptions = {
 //   origin: "https://notable-app-new-fe.onrender.com/",
