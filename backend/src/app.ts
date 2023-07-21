@@ -13,22 +13,9 @@ const app = express();
 
 var cors = require("cors");
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://notable-app-new-fe.onrender.com",
-];
-
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "https://notable-app-new-fe.onrender.com/",
 };
-
-app.use(cors(corsOptions));
 
 //HTTP request logger middleware for node.js
 //print this in console : GET /api/notes/644918460cf62902a184ec8 500 40.650 ms - 122
