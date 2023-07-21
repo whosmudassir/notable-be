@@ -13,6 +13,9 @@ const app = express();
 
 var cors = require("cors");
 
+const corsOptions = {
+  origin: "https://notable-app-new-fe.onrender.com/",
+};
 //HTTP request logger middleware for node.js
 //print this in console : GET /api/notes/644918460cf62902a184ec8 500 40.650 ms - 122
 app.use(morgan("dev"));
@@ -20,7 +23,7 @@ app.use(morgan("dev"));
 //to set data format
 app.use(express.json());
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 //set up express session, cookie setup, store in mongo
 app.use(
