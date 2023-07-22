@@ -13,7 +13,7 @@ const cors = require("cors");
 const app = express();
 
 const corsOptions = {
-  origin: "https://notable-app-new-fe.onrender.com",
+  origin: "http://localhost:3000",
 };
 
 //HTTP request logger middleware for node.js
