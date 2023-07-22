@@ -22,7 +22,9 @@ app.use(express.json());
 app.use(
   cors({
     origin: "https://notable-app-new-fe.onrender.com", // Replace with your frontend domain
-    credentials: true, // This allows sending cookies from the frontend to the backend
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
