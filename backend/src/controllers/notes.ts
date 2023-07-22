@@ -10,7 +10,7 @@ export const getNotes: RequestHandler = async (req, res, next) => {
   try {
     assertIsDefined(authenticatedUserId);
     // throw Error("Bazinga");
-    const notes = await NoteModel.find({ userId: authenticatedUserId }).exec();
+    const notes = await NoteModel.find().exec();
     res.status(200).json(notes);
   } catch (error) {
     //error handled by error handler in app.ts
