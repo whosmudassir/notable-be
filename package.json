@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/whosmudassir/mern-app-tutorial/issues"
   },
-  "homepage": "https://github.com/whosmudassir/mern-app-tutorial#readme"
+  "homepage": "https://github.com/whosmudassir/mern-app-tutorial#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.13"
+  }
 }
