@@ -8,13 +8,9 @@ import session from "express-session";
 import env from "./util/validateEnv";
 import MongoStore from "connect-mongo";
 import { requiresAuth } from "./middleware/auth";
-const cors = require("cors");
+import cors from "cors";
 
 const app = express();
-
-const corsOptions = {
-  origin: ["*"],
-};
 
 //HTTP request logger middleware for node.js
 //print this in console : GET /api/notes/644918460cf62902a184ec8 500 40.650 ms - 122
@@ -23,7 +19,12 @@ app.use(morgan("dev"));
 //to set data format
 app.use(express.json());
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://notable-app-new-fe.onrender.com", // Replace with your frontend domain
+    credentials: true, // This allows sending cookies from the frontend to the backend
+  })
+);
 
 //set up express session, cookie setup, store in mongo
 app.use(
