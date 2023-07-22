@@ -21,10 +21,15 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://notable-app-new-fe.onrender.com", // Replace with your frontend domain
+    origin: "https://notable-app-new-fe.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: "*",
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With", // For AJAX requests
+      "Accept", // For specifying the response format (e.g., JSON)
+    ],
   })
 );
 
