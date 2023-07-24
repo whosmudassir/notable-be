@@ -11,6 +11,8 @@ export const getNotes: RequestHandler = async (req, res, next) => {
     assertIsDefined(authenticatedUserId);
     // throw Error("Bazinga");
     const notes = await NoteModel.find({ userId: authenticatedUserId }).exec();
+
+    req.session.save();
     res.status(200).json(notes);
   } catch (error) {
     //error handled by error handler in app.ts
@@ -37,6 +39,7 @@ export const getSingleNote: RequestHandler = async (req, res, next) => {
     if (!note.userId.equals(authenticatedUserId)) {
       throw createHttpError(401, "You cannot acess this note");
     }
+    req.session.save();
     res.status(200).json(note);
   } catch (error) {
     next(error);
@@ -71,6 +74,7 @@ export const createNote: RequestHandler<
       text: text,
     });
     //201 for new resource create
+    req.session.save();
     res.status(201).json(newNote);
   } catch (error) {
     next(error);
@@ -127,6 +131,7 @@ export const updateNote: RequestHandler<
     //get updated note to render on ui
     const updatedNote = await note.save();
     //return in it api
+    req.session.save();
     res.status(200).json(updatedNote);
   } catch (error) {
     next(error);
