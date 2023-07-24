@@ -11,7 +11,7 @@ import { requiresAuth } from "./middleware/auth";
 import cors from "cors";
 
 const app = express();
-
+app.set("trust proxy", 1);
 //HTTP request logger middleware for node.js
 //print this in console : GET /api/notes/644918460cf62902a184ec8 500 40.650 ms - 122
 app.use(morgan("dev"));
