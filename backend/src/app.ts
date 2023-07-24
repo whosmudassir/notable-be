@@ -51,7 +51,7 @@ app.use(
 
 //first endpoint
 app.use("/api/users", usersRoute);
-app.use("/api/notes", notesRoute);
+app.use("/api/notes", requiresAuth, notesRoute);
 
 //error handling in case of path that is not present
 app.use((req, res, next) => {
