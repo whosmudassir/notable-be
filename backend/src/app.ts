@@ -41,6 +41,9 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 60 * 60 * 1000,
+      sameSite: "lax", // Set the SameSite attribute (lax or strict based on your requirements)
+      secure: true, // Set to true to send the cookie only over HTTPS in production
+      httpOnly: false, // Set to false to allow client-side JavaScript to access the cookie
     },
     rolling: true,
     store: MongoStore.create({
